@@ -8,5 +8,5 @@ export BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}i")" && pwd)"
 
 if [[ -z "${APP_NAME}" ]]
 	echo "Environment variable APP_NAME is not defined"
-	exit(1)
+	exit 1
 fi
