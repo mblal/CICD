@@ -22,7 +22,20 @@ EXAMPLE
 SOURCE_CODE_DIR= my_app/
 DCOKER_IMAGE=mblcontainerize/node:latest
 ```
+Here we tell to s2i to ignore .git contained in SOURCE_CODE_DIR, because its presence create some build troubles
+
 ```
 sudo s2i build -c ${SOURCE_CODE_DIR} ${DOCKER_IMAGE} ${OUTPUT_IMAGE} --exclude "(^|/)\.git|.bindingroot(/|$)"
 ```
-Here we tell to s2i to ignore .git contained in SOURCE_CODE_DIR, because its presence create some build troubles
+
+One we have a docker image with our source code, we have to store in docker registry to make a kubernetes deployement later, here is a sample example to deploy a local registry
+```
+https://docs.docker.com/registry/deploying/
+```
+Once your registry is deployed, tag and push your image just build with s2i
+
+```
+docker tag my_app_im:latest localhost:5000/my-app-im
+docker push localhost:5000/my-app-im
+```
+He, here image using docker without sudo (https://docs.docker.com/engine/install/linux-postinstall/)
