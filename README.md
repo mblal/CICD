@@ -5,10 +5,15 @@ And then come deployment stage with k8s and creation of differents objects neede
 
 
 ### STEP 1 Build customized docker base image.
-
+```
 sudo docker build -t mb-node - < Dockerfile.yaml
+```
+```
 sudo docker tag mb-node:16.13 mblcontainerize/node:latest
+```
+```
 sudo docker push mblcontainerize/node:latest
+```
 
 ### STEP 2 S2I build
 
