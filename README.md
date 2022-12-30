@@ -17,7 +17,7 @@ sudo docker push mblcontainerize/node:latest
 
 ### STEP 2: S2I build
 
-EXAMPlE 
+EXAMPLE 
 ```
 SOURCE_CODE_DIR= my_app/
 DCOKER_IMAGE=mblcontainerize/node:latest
