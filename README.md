@@ -22,7 +22,7 @@ EXAMPLE
 SOURCE_CODE_DIR= my_app/
 DCOKER_IMAGE=mblcontainerize/node:latest
 ```
-Here we tell to s2i to ignore .git contained in SOURCE_CODE_DIR, because its presence create some build troubles
+Here we tell to s2i to ignore .git contained in SOURCE_CODE_DIR, because its presence creates some build troubles
 
 ```
 sudo s2i build -c ${SOURCE_CODE_DIR} ${DOCKER_IMAGE} ${OUTPUT_IMAGE} --exclude "(^|/)\.git|.bindingroot(/|$)"
