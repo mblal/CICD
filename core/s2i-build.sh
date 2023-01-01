@@ -18,7 +18,7 @@ echo "We are copying .s2i scripts from ${elected_s2i}"
 cp -R $APP_NAME "${APP_NAME}_TMP"
 cp -R ${elected_s2i} "${APP_NAME}_TMP/"
 SOURCE_CODE="${APP_NAME}_TMP/"
-OUTPUT_IMAGE=`echo "${APP_NAME}_im"|awk '{print tolower($0)}'`
+
 echo ${DOCKER_IMAGE}
 echo ${OUTPUT_IMAGE}
 #sudo s2i build $SOURCE_CODE ${DOCKER_IMAGE} ${OUTPUT_IMAGE}
