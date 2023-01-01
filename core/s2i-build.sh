@@ -19,10 +19,13 @@ echo "We are copying .s2i scripts from ${elected_s2i}"
 
 cp -R $APP_NAME "${APP_NAME}_TMP"
 cp -R ${elected_s2i} "${APP_NAME}_TMP/"
-SOURCE_CODE="${APP_NAME}_TMP/"
+export SOURCE_CODE="${APP_NAME}_TMP/"
 
-# @TODO delete the line below
-cp "${BASEDIR}/../conf/${APP_NAME}/server.js" "${APP_NAME}_TMP/"
+
+# Execute a specific build for the project if there is one
+if [[ -e "${BASEDIR}/../conf/${APP_NAME}/build/build.sh" ]]; then
+  source ${BASEDIR}/../conf/${APP_NAME}/build/build.sh
+fi
 
 echo "Docker image name : ${DOCKER_IMAGE}"
 echo "Image built with s2i: ${OUTPUT_IMAGE}"
