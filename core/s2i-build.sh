@@ -10,6 +10,9 @@ fi
 if [[ -d "${project_s2i_scripts_path}" ]]; then
   elected_s2i="${project_s2i_scripts_path}"
 fi
+
+git clone --branch $GIT_SOURCE_BRANCH $GIT_SOURCE $APP_NAME
+
 echo "We are copying .s2i scripts from ${elected_s2i}"
 
 cp -R $APP_NAME "${APP_NAME}_TMP"

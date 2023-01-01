@@ -15,7 +15,6 @@ source $BASEDIR/utils/utils.sh
 echo $BASEDIR
 echo $GIT_SOURCE
 echo $APP_NAME
-git clone --branch $GIT_SOURCE_BRANCH $GIT_SOURCE $APP_NAME
 
 case "$1" in
 	"paas")
