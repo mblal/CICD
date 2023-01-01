@@ -4,6 +4,9 @@ export DOCKER_IMAGE_NORMALIZED_NAME=`echo "${DOCKER_IMAGE_NORMALIZED_NAME}" | tr
 
 case "$1" in
 	"build")
-	       	action $1
+	      action $1
 		;;
+  "deploy")
+        action $1
+  ;;
 esac
