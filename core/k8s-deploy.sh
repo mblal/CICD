@@ -4,4 +4,6 @@ echo "Display of some variables"
 
 echo $DOCKER_IMAGE_NORMALIZED_NAME;
 echo $DOCKER_REPO_URL
-kubectl create -f "${BASEDIR}/../conf/${APP_NAME}/template.yaml"
+template="${BASEDIR}/../conf/${APP_NAME}/template.yaml"
+envsubst <"${template}" >"${template}.tmp"
+#kubectl create -f "${BASEDIR}/../conf/${APP_NAME}/template.yaml"
