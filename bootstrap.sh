@@ -18,6 +18,6 @@ echo $APP_NAME
 
 case "$1" in
 	"paas")
-	       	source "$1.sh" $2
+	       	source $1.sh $2
 		;;
 esac
