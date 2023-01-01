@@ -2,8 +2,10 @@
 defaut_s2i_scripts_path="${BASEDIR}/k8s/techno/${SOCLE}/.s2i"
 project_s2i_scripts_path="${BASEDIR}/../conf/${APP_NAME}/.s2i"
 elected_s2i=""
+
 echo $defaut_s2i_scripts_path
 echo $project_s2i_scripts_path
+
 if [[ -d "${defaut_s2i_scripts_path}" ]]; then
   elected_s2i="${defaut_s2i_scripts_path}"
 fi
@@ -18,7 +20,6 @@ echo "We are copying .s2i scripts from ${elected_s2i}"
 cp -R $APP_NAME "${APP_NAME}_TMP"
 cp -R ${elected_s2i} "${APP_NAME}_TMP/"
 SOURCE_CODE="${APP_NAME}_TMP/"
-
 echo ${DOCKER_IMAGE}
 echo ${OUTPUT_IMAGE}
 #sudo s2i build $SOURCE_CODE ${DOCKER_IMAGE} ${OUTPUT_IMAGE}

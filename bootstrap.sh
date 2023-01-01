@@ -12,6 +12,7 @@ if [[ -z "${APP_NAME}" ]]; then
 fi
 source $BASEDIR/../conf/$APP_NAME/env.sh
 source $BASEDIR/utils/utils.sh
+# Display come env variables.
 echo $BASEDIR
 echo $GIT_SOURCE
 echo $APP_NAME
