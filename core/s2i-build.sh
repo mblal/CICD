@@ -26,9 +26,6 @@ sudo s2i build -c ${SOURCE_CODE} ${DOCKER_IMAGE} ${OUTPUT_IMAGE} --exclude "(^|/
 
 # Push build image in a docker repository
 
-DOCKER_IMAGE_NORMALIZED_NAME=`echo "${OUTPUT_IMAGE}" | tr '[:upper:]' '[:lower:]' | sed 's/_/-/g'`
-DOCKER_IMAGE_NORMALIZED_NAME=`echo "${DOCKER_IMAGE_NORMALIZED_NAME}" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9.-]//g'`
-
 echo $DOCKER_IMAGE_NORMALIZED_NAME
 if [[ -z "${DOCKER_REPO_URL}" ]]; then
   echo "You didn't define a docker repository url to push your image just built."
