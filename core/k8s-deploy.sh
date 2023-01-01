@@ -6,4 +6,4 @@ echo $DOCKER_IMAGE_NORMALIZED_NAME;
 echo $DOCKER_REPO_URL
 template="${BASEDIR}/../conf/${APP_NAME}/template.yaml"
 envsubst <"${template}" >"${template}.tmp"
-#kubectl create -f "${BASEDIR}/../conf/${APP_NAME}/template.yaml"
+kubectl create -f "${BASEDIR}/../conf/${APP_NAME}/template.yaml.tmp"
