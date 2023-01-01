@@ -21,8 +21,12 @@ cp -R $APP_NAME "${APP_NAME}_TMP"
 cp -R ${elected_s2i} "${APP_NAME}_TMP/"
 SOURCE_CODE="${APP_NAME}_TMP/"
 
+# @TODO delete the line below
+cp "${BASEDIR}/../conf/${APP_NAME}/server.js" "${APP_NAME}_TMP/"
+
 echo "Docker image name : ${DOCKER_IMAGE}"
 echo "Image built with s2i: ${OUTPUT_IMAGE}"
+
 #sudo s2i build $SOURCE_CODE ${DOCKER_IMAGE} ${OUTPUT_IMAGE}
 sudo s2i build -c ${SOURCE_CODE} ${DOCKER_IMAGE} ${OUTPUT_IMAGE} --exclude "(^|/)\.git|.bindingroot(/|$)"
 
