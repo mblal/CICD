@@ -4,7 +4,10 @@ function action() {
 		"build")
 			source $BASEDIR/core/s2i-build.sh
 			;;
-	esac
+    "deploy")
+      source $BASEDIR/core/k8s-deploy.sh
+      ;;
+  esac
 	
 }
 export -f action
