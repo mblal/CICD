@@ -7,6 +7,17 @@ echo $DOCKER_REPO_URL
 template="${BASEDIR}/../conf/${APP_NAME}/template.yaml"
 envsubst <"${template}" >"${template}.tmp"
 
+sKINDS="$(yq '.kind' template.yaml.tmp | tr --delete '\n' | sed 's/---/,/g')"
+sOBJECT_NAMES="$(yq '.metadata.name' template.yaml.tmp | tr --delete '\n' | sed 's/---/,/g')"
+
+IFS=',' read -ra KINDS <<< "$sKINDS"
+IFS=',' read -ra NAMES <<< "$sOBJECT_NAMES"
+
+for i in "${!KINDS[@]}";
+do
+  kubectl delete ${KINDS[$i]} ${NAMES[$i]}" --grace-period 0 --force
+done
+
 echo "-------------------------------------------------------------"
 kubectl create -f "${BASEDIR}/../conf/${APP_NAME}/template.yaml.tmp"
 echo "-------------------------------------------------------------"
