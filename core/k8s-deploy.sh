@@ -15,7 +15,7 @@ IFS=',' read -ra NAMES <<< "$sOBJECT_NAMES"
 
 for i in "${!KINDS[@]}";
 do
-  kubectl delete ${KINDS[$i]} ${NAMES[$i]} --grace-period 0 --force
+  kubectl delete ${KINDS[$i]} ${NAMES[$i]} --ignore-not-found=true --grace-period 0 --force
 done
 
 echo "-------------------------------------------------------------"
